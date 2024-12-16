@@ -1,0 +1,38 @@
+@model IEnumerable<Ogretmen>
+    <h2>Kayıt Listesi Listesi</h2>
+     <a asp-controller="Ogretmen" asp-action="Create" class="btn btn-primary">Kayıt Ekle Ekle</a>
+    <hr>
+    <table class="table table-bordered">
+       
+        <thead>
+            <tr>
+              <th style="width: 150px;">@Html.DisplayNameFor(m=>m.OgretmenId)</th>
+              <th>@Html.DisplayNameFor(m=>m.Ad)</th>
+              <th>@Html.DisplayNameFor(m=>m.Soyad)</th>
+              <th>@Html.DisplayNameFor(m=>m.BaslamaTarihi)</th>
+              <th style="width: 150px;"></th>
+
+            </tr>
+        </thead>
+    <tbody>
+        @foreach(var item in Model){
+
+      //2 kullanımda var  DisplayFor değer almak için , @Html.DisplayNameFor(m=>m.OgrenciSoyad) ismini almak için modelin 
+        <tr>
+             <td>@item.OgretmenId</td>
+              <td>
+                @Html.DisplayFor(modelItem=>item.Ad)
+                </td>
+               <td>@item.Soyad</td>
+                <td>@Html.DisplayFor(modelItem=>item.BaslamaTarihi)</td>
+              
+                <td>
+                    <a asp-controller="Ogretmen" asp-action="Edit" asp-route-id="@item.OgretmenId" class="btn btn-sm btn-primary">Edit</a>
+                     <a asp-controller="Ogretmen" asp-action="Delete" asp-route-id="@item.OgretmenId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+
+        </tr>
+  }
+    </tbody>
+
+    </table>

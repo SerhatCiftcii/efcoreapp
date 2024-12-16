@@ -1,0 +1,10 @@
+@model KursKayit
+
+<p> 
+   <b> @Model.Kurs.Baslık </b> isimli öğrenciye silmek istiyor musunuz?
+   <form  asp-controller="KursKayit" asp-action="Delete" method="post">
+    <input type="hidden" name="id" value=@Model.KayitId>
+   <button type="submit" class="btn btn-danger">Evet</button>
+   <a asp-action="Index" class="btn btn-primary">Hayır</a>
+   </form>
+</p>

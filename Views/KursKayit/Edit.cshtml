@@ -1,0 +1,27 @@
+@model efcoreApp.Data.KursKayit
+
+<h2>Kurs Kaydını Güncelle</h2>
+<hr>
+
+<form asp-controller="KursKayit" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="KayitId" />
+
+    <div class="mb-3">
+        <label class="form-label">Öğrenci</label>
+        <input value="@Model.Ogrenci.AdSoyad" class="form-control" readonly />
+        <input type="hidden" asp-for="OgrenciId" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Kurs</label>
+        <input value="@Model.Kurs.Baslık" class="form-control" readonly />
+        <input type="hidden" asp-for="KursId" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="KayitTarihi" class="form-label">Kayıt Tarihi</label>
+        <input asp-for="KayitTarihi" class="form-control" type="date" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Güncelle</button>
+</form>
